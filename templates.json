@@ -467,36 +467,6 @@
           "name": "GITLAB_PAGES"
         },
         {
-          "label": "GitLab Incoming Email Address",
-          "name": "GITLAB_CE_INCOMING_EMAIL_ADDRESS"
-        },
-        {
-          "label": "GitLab Incoming Email",
-          "name": "GITLAB_CE_INCOMING_EMAIL_EMAIL"
-        },
-        {
-          "label": "GitLab Incoming Password",
-          "name": "GITLAB_CE_INCOMING_EMAIL_PASSWORD"
-        },
-        {
-          "label": "GitLab Incoming Mail Host",
-          "name": "GITLAB_CE_INCOMING_EMAIL_HOST"
-        },
-        {
-          "label": "GitLab Incoming Mail Host Port",
-          "name": "GITLAB_CE_INCOMING_EMAIL_PORT"
-        },
-        {
-          "default": "true",
-          "label": "GitLab Incoming Mail Host SSL",
-          "name": "GITLAB_CE_INCOMING_EMAIL_SSL"
-        },
-        {
-          "default": "true",
-          "label": "GitLab Incoming Mail Host Start TLS",
-          "name": "GITLAB_CE_INCOMING_EMAIL_START_TLS"
-        },
-        {
           "default": "2222",
           "label": "GitLab SSH Port",
           "name": "GITLAB_CE_SSH_PORT"
