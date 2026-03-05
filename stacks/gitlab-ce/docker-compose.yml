@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   gitlab-ce:
     container_name: ${COMPOSE_PROJECT_NAME}-app
@@ -8,10 +6,10 @@ services:
     restart: always
     environment:
       TZ: ${TZ}
-      VIRTUAL_HOST: ${GITLAB_HOST},${GITLAB_REGISTRY},${GITLAB_PAGES}
-      LETSENCRYPT_HOST: ${GITLAB_HOST},${GITLAB_REGISTRY},${GITLAB_PAGES}
-      SSH_HOST: ${GITLAB_HOST}
-      SSH_PORT: ${GITLAB_CE_SSH_PORT}
+      # VIRTUAL_HOST: ${GITLAB_HOST},${GITLAB_REGISTRY},${GITLAB_PAGES}
+      # LETSENCRYPT_HOST: ${GITLAB_HOST},${GITLAB_REGISTRY},${GITLAB_PAGES}
+      # SSH_HOST: ${GITLAB_HOST}
+      # SSH_PORT: ${GITLAB_CE_SSH_PORT}
       GITLAB_OMNIBUS_CONFIG: |
         external_url 'https://${GITLAB_HOST}'
         registry_external_url 'https://${GITLAB_REGISTRY}'
@@ -55,6 +53,20 @@ services:
       - logs:/var/log/gitlab
       - data:/var/opt/gitlab
     shm_size: '256m'
+    labels:
+      # Habilita Traefik para HTTP (no TCP)
+      - "traefik.enable=true"
+      # HTTP → HTTPS (middleware definido en https_redirection.yml)
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-app.rule=Host(`${GITLAB_HOST}`) || Host(`www.${GITLAB_HOST}`) || Host(`www.${GITLAB_REGISTRY}`) || Host(`www.${GITLAB_REGISTRY}`)"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-app.entrypoints=web"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-app.middlewares=https_redirection@file"
+      # HTTPS (SSL automático)
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.rule=Host(`${GITLAB_HOST}`) || Host(`www.${GITLAB_HOST}`) || Host(`www.${GITLAB_REGISTRY}`) || Host(`www.${GITLAB_REGISTRY}`)"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.entrypoints=websecure"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.tls=true"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.tls.certresolver=letsencrypt"
+      # Servicio backend (puerto Gitea)
+      - "traefik.http.services.${COMPOSE_PROJECT_NAME}.loadbalancer.server.port=80"
 
 volumes:
   config:
