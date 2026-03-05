@@ -431,7 +431,7 @@
       "note": "Deploys a GitLab instance.",
       "categories": ["Code Server"],
       "platform": "linux",
-      "logo": "https://raw.githubusercontent.com/business-web-services/portainner-templates/main/stacks/gitlab-ce/logo/logo.png",
+      "logo": "https://raw.githubusercontent.com/business-web-services/portainer-templates/main/stacks/gitlab-ce/logo/logo.png",
       "repository": {
         "url": "https://github.com/business-web-services/portainer-templates",
         "stackfile": "stacks/gitlab-ce/docker-compose.yml"
