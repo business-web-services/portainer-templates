@@ -44,7 +44,6 @@ services:
         user['uid'] = 1234
         user['gid'] = 1234
     ports:
-#      - "${GITLAB_CE_SSH_PORT}:22"
       - "${GITLAB_CE_REGISTRY_PORT}:5000"
     volumes:
       - /srv/gitlab/data:/var/opt/gitlab
