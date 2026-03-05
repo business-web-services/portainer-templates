@@ -734,8 +734,110 @@
           "container": "/data"
         }
       ]
+    },
+    {
+      "id": 9,
+      "type": 3,
+      "title": "Gitea Act Runner",
+      "description": "Gitea Runner Setup",
+      "note": "Deploys a Gitea Act Runner.",
+      "categories": ["CI/CD"],
+      "platform": "linux",
+      "logo": "https://raw.githubusercontent.com/business-web-services/portainer-templates/main/stacks/gitea-act-runner/logo/logo.png",
+      "repository": {
+        "url": "https://github.com/business-web-services/portainer-templates",
+        "stackfile": "stacks/gitea-act-runner/docker-compose.yml"
+      },
+      "env": [
+        {
+          "default": "gitea/act_runner",
+          "label": "Gitea Act Runner Image",
+          "name": "GITEA_ACT_RUNNER_IMAGE"
+        },
+        {
+          "default": "0.2.11",
+          "label": "Gitea Act Runner Tag",
+          "name": "GITEA_ACT_RUNNER_TAG"
+        },
+        {
+          "default": "https://code.example.com",
+          "label": "Gitea Instance URL",
+          "name": "GITEA_INSTANCE_URL"
+        },
+        {
+          "label": "Gitea Instance Registration Token",
+          "name": "GITEA_RUNNER_REGISTRATION_TOKEN"
+        },
+        {
+          "default": "24h",
+          "label": "Gitea Action Timeout",
+          "name": "TIMEOUT_OVERRIDE"
+        },
+        {
+          "default": "2",
+          "label": "Gitea Capacity Tasks",
+          "name": "CAPACITY"
+        },
+        {
+          "default": "60s",
+          "label": "Gitea Shutdown Timeout",
+          "name": "SHUTDOWN_TIMEOUT"
+        },
+        {
+          "default": "false",
+          "label": "Gitea Insecure",
+          "name": "INSECURE"
+        },
+        {
+          "default": "60s",
+          "label": "Gitea Fetch Timeout",
+          "name": "FETCH_TIMEOUT"
+        },
+        {
+          "default": "60s",
+          "label": "Gitea Fetch Timeout",
+          "name": "FETCH_TIMEOUT"
+        },
+        {
+          "default": "true",
+          "label": "Gitea Privileged",
+          "name": "PRIVILEGED"
+        },
+        {
+          "default": "[/tmp/buildx-cache,/data]",
+          "label": "Gitea Valid Volumes",
+          "name": "VALID_VOLUMES"
+        },
+        {
+          "default": "unix:///var/run/docker.sock",
+          "label": "Gitea Docker Host",
+          "name": "DOCKER_HOST_VAR"
+        },
+        {
+          "default": "false",
+          "label": "Gitea Force Pull",
+          "name": "FORCE_PULL"
+        },
+        {
+          "default": "true",
+          "label": "Gitea Force Rebuild",
+          "name": "FORCE_REBUILD"
+        },
+        {
+          "default": "proxy",
+          "label": "Network Name",
+          "name": "NETWORK"
+        }
+       ],
+      "volumes": [
+        {
+          "container": "/data"
+        },
+        {
+          "container": "/tmp/buildx-cache"
+        }
+      ]
     }
-
 
 
   ]
