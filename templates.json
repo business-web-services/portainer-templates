@@ -461,11 +461,6 @@
           "label": "GitLab Host",
           "name": "GITLAB_HOST"
         },
-        // {
-        //   "default": "registry.example.com",
-        //   "label": "GitLab Registry Host",
-        //   "name": "GITLAB_REGISTRY"
-        // },
         {
           "default": "pages.example.com",
           "label": "GitLab Pages",

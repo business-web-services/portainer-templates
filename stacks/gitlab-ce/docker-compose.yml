@@ -6,22 +6,19 @@ services:
     restart: always
     environment:
       TZ: ${TZ}
-      # VIRTUAL_HOST: ${GITLAB_HOST},${GITLAB_REGISTRY},${GITLAB_PAGES}
-      # LETSENCRYPT_HOST: ${GITLAB_HOST},${GITLAB_REGISTRY},${GITLAB_PAGES}
-      # SSH_HOST: ${GITLAB_HOST}
-      # SSH_PORT: ${GITLAB_CE_SSH_PORT}
       GITLAB_OMNIBUS_CONFIG: |
-        external_url 'https://${GITLAB_HOST}'
-        registry_external_url 'https://${GITLAB_HOST}'
-        pages_external_url 'https://${GITLAB_PAGES}'
         nginx['listen_port'] = 80
         nginx['listen_https'] = false
-        registry_nginx['listen_port'] = 80
-        registry_nginx['listen_https'] = false
         nginx['proxy_set_headers'] = {  "X-Forwarded-Proto" => "https", "X-Forwarded-Ssl" => "on" }
+        external_url 'https://${GITLAB_HOST}'
+        registry['enable'] = false
+        registry_external_url 'https://${GITLAB_HOST}'
         gitlab_pages['enable'] = true
+        pages_external_url 'https://${GITLAB_PAGES}'
         pages_nginx['listen_port'] = 80
         pages_nginx['listen_https'] = false
+        registry_nginx['listen_port'] = 80
+        registry_nginx['listen_https'] = false
         gitlab_pages['log_directory'] = "/var/log/gitlab/gitlab-pages"
         nginx['client_max_body_size'] = "0"
         gitlab_rails['lfs_enabled'] = true
