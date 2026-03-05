@@ -8,9 +8,9 @@
       "description": "Docker image for GNU Health a free/libre health and hospital information system.",
       "categories": ["Health"],
       "platform": "linux",
-      "logo": "https://raw.githubusercontent.com/business-web-services/templates/main/stacks/gnuhealth/logo/logo.png",
+      "logo": "https://raw.githubusercontent.com/business-web-services/portainer-templates/main/stacks/gnuhealth/logo/logo.png",
       "repository": {
-        "url": "https://github.com/business-web-services/templates",
+        "url": "https://github.com/business-web-services/portainer-templates",
         "stackfile": "stacks/gnuhealth/docker-compose.yml"
       },
       "env": [
@@ -181,9 +181,9 @@
       "description": "Docker image for PostgreSQL.",
       "categories": ["Database"],
       "platform": "linux",
-      "logo": "https://raw.githubusercontent.com/business-web-services/templates/main/stacks/postgres/logo/logo.png",
+      "logo": "https://raw.githubusercontent.com/business-web-services/portainer-templates/main/stacks/postgres/logo/logo.png",
       "repository": {
-        "url": "https://github.com/business-web-services/templates",
+        "url": "https://github.com/business-web-services/portainer-templates",
         "stackfile": "stacks/postgres/docker-compose.yml"
       },
       "env": [
@@ -351,9 +351,9 @@
       "note": "Deploys a Redis server instance as an application cache or quick-response database.",
       "categories": ["Database"],
       "platform": "linux",
-      "logo": "https://raw.githubusercontent.com/business-web-services/templates/main/stacks/redis/logo/logo.png",
+      "logo": "https://raw.githubusercontent.com/business-web-services/portainer-templates/main/stacks/redis/logo/logo.png",
       "repository": {
-        "url": "https://github.com/business-web-services/templates",
+        "url": "https://github.com/business-web-services/portainer-templates",
         "stackfile": "stacks/redis/docker-compose.yml"
       },
       "env": [
